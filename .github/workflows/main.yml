@@ -14,7 +14,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: text-file
-          path: file.txt     
+          path: ./file.txt     
 
 
   print-file:
@@ -23,7 +23,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: text-file
-          path: file.txt 
+          path: ./file.txt 
 
       - name: Print file
         run: cat file.txt
