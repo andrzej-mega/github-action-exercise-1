@@ -4,9 +4,26 @@ on:
   push
 
 jobs:
-  say-hello:
+  create-file:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Hello
+      - name: Echo to File
         run: |
-          echo Hello World
+          echo Hello World >> file.txt
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: text-file
+          path: file.txt     
+
+
+  print-file:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: text-file
+          path: file.txt 
+
+      - name: Print file
+        run: cat file.txt
