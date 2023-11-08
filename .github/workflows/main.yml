@@ -19,6 +19,7 @@ jobs:
 
   print-file:
     runs-on: ubuntu-latest
+    needs: create-file
     steps:
       - uses: actions/download-artifact@v3
         with:
